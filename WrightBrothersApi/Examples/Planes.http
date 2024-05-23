@@ -1,0 +1,27 @@
+GET http://localhost:3000/planes HTTP/1.1
+
+###
+
+GET http://localhost:3000/planes/1 HTTP/1.1
+
+###
+
+POST http://localhost:3000/planes HTTP/1.1
+content-type: application/json
+
+{
+  "id": 4,
+  "name": "Wright Flyer III",
+  "year": 1905,
+  "description": "The first fully controllable Flyer."
+}
+
+###
+ 
+POST http://localhost:3000/planes/crash HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://localhost:3000/flights/1/takeoff/50 HTTP/1.1
+content-type: application/json

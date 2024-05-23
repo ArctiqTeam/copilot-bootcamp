@@ -1,0 +1,42 @@
+### 
+# GET all airfields
+GET http://localhost:3000/airfields HTTP/1.1
+###
+
+### 
+# GET a specific airfield by id
+GET http://localhost:3000/airfields/1 HTTP/1.1
+###
+
+### 
+# POST a new airfield
+POST http://localhost:3000/airfields HTTP/1.1
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "New Airfield",
+    "location": "New Location",
+    "years": "1900-1903",
+    "description": "New Description"
+}
+###
+
+### 
+# DELETE an airfield by id
+DELETE http://localhost:3000/airfields/3 HTTP/1.1
+###
+
+### 
+# PUT (update) an existing airfield by id
+PUT http://localhost:3000/airfields/1 HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Updated Airfield",
+    "location": "Updated Location",
+    "years": "1900-1903",
+    "description": "Updated Description"
+}
+###

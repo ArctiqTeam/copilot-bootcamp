@@ -1,0 +1,14 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Simple API
+  description: A simple API to learn how to write OpenAPI Specification
+paths:
+  /health:
+    get:
+      summary: Checks the health of the system
+      responses:
+        '200':
+          description: The system is healthy
+        '500':
+          description: The system is not healthy
