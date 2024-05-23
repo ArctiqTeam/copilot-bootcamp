@@ -16,27 +16,27 @@ class PlanesController {
     constructor() {
         this.router = express.Router();
         this.planes = [
-            {
-                id: 1,
-                name: "Wright Flyer",
-                year: 1903,
-                description: "The first successful heavier-than-air powered aircraft.",
-                rangeInKm: 12
-            },
-            {
-                id: 2,
-                name: "Wright Flyer II",
-                year: 1904,
-                description: "A refinement of the original Flyer with better performance.",
-                rangeInKm: 24
-            },
-            {
-                id: 3,
-                name: "Wright Model A",
-                year: 1908,
-                description: "The first commercially successful airplane.",
-                rangeInKm: 40
-            }
+            new Plane(
+                1,
+                "Wright Flyer",
+                1903,
+                "The first successful heavier-than-air powered aircraft.",
+                12
+            ),
+            new Plane(
+                2,
+                "Wright Flyer II",
+                1904,
+                "A refinement of the original Flyer with better performance.",
+                24
+            ),
+            new Plane(
+                3,
+                "Wright Model A",
+                1908,
+                "The first commercially successful airplane.",
+                40
+            )
         ];
 
         this.router.get('/', this.getAllPlanes.bind(this));
