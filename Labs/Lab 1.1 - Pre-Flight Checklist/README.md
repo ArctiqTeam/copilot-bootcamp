@@ -90,7 +90,7 @@ The REST API client extension is very useful to quickly execute HTTP requests in
 
 - Response will be:
 
-    ```json
+    ```md
     HTTP/1.1 200 OK
 
     ...
