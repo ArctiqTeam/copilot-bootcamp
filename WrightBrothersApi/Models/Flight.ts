@@ -9,17 +9,17 @@ enum FlightStatus {
 }
 
 class Flight {
-    id: number;
-    flightNumber: string;
-    origin: string;
-    destination: string;
-    departureTime: Date;
-    arrivalTime: Date;
-    status: FlightStatus;
-    fuelRange: number;
-    fuelTankLeak: boolean;
-    flightLogSignature: string;
-    aerobaticSequenceSignature: string;
+    public id: number;
+    public flightNumber: string;
+    public origin: string;
+    public destination: string;
+    public departureTime: Date;
+    public arrivalTime: Date;
+    public status: FlightStatus;
+    public fuelRange: number;
+    public fuelTankLeak: boolean;
+    public flightLogSignature: string;
+    public aerobaticSequenceSignature: string;
 
     constructor(id: number, flightNumber: string, origin: string, destination: string, departureTime: Date, arrivalTime: Date, status: FlightStatus, fuelRange: number, fuelTankLeak: boolean, flightLogSignature: string, aerobaticSequenceSignature: string) {
         this.id = id;

@@ -1,9 +1,9 @@
 class Plane {
-    id: number;
-    name: string;
-    year: number;
-    description: string;
-    rangeInKm: number;
+    public id: number;
+    public name: string;
+    public year: number;
+    public description: string;
+    public rangeInKm: number;
 
     constructor(id: number, name: string, year: number, description: string, rangeInKm: number) {
         this.id = id;

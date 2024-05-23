@@ -1,9 +1,9 @@
 class Airfield {
-    id: number;
-    name: string;
-    location: string;
-    datesOfUse: string;
-    significance: string;
+    public id: number;
+    public name: string;
+    public location: string;
+    public datesOfUse: string;
+    public significance: string;
 
     constructor(id: number, name: string, location: string, datesOfUse: string, significance: string) {
         this.id = id;
