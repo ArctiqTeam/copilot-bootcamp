@@ -79,7 +79,51 @@ class FlightsController {
     }
 
     updateStatus(req: Request, res: Response) {
-        // Implement your logic for updating flight status
+        const id = parseInt(req.params.id);
+        const newStatus = req.body.status;
+        const flight = this.flights.find(f => f.id === id);
+        if (flight) {
+            switch (newStatus) {
+                case 'Boarding':
+                    if (new Date() > flight.departureTime) {
+                        return { status: 400, message: "Cannot board, past departure time." };
+                    }
+                    break;
+                case 'Departed':
+                    if (flight.status !== 'Boarding') {
+                        return { status: 400, message: "Flight must be in 'Boarding' status before it can be 'Departed'." };
+                    }
+                    break;
+                case 'InAir':
+                    if (flight.status !== 'Departed') {
+                        return { status: 400, message: "Flight must be in 'Departed' status before it can be 'In Air'." };
+                    }
+                    break;
+                case 'Landed':
+                    if (flight.status !== 'InAir') {
+                        return { status: 400, message: "Flight must be in 'In Air' status before it can be 'Landed'." };
+                    }
+                    break;
+                case 'Cancelled':
+                    if (new Date() > flight.departureTime) {
+                        return { status: 400, message: "Cannot cancel, past departure time." };
+                    }
+                    break;
+                case 'Delayed':
+                    if (flight.status === 'Cancelled') {
+                        return { status: 400, message: "Cannot delay, flight is cancelled." };
+                    }
+                    break;
+                default:
+                    return { status: 400, message: "Unknown or unsupported flight status." };
+            }
+    
+            flight.status = newStatus;
+    
+            return { status: 200, message: `Flight status updated to ${newStatus}.` };
+        } else {
+            return { status: 404, message: "Flight not found." };
+        }
     }
 
     takeFlight(req: Request, res: Response): void {
