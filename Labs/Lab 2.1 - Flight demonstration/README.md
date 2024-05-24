@@ -375,7 +375,7 @@ class PlanesController {
 - Ask the following question:
 
     ```
-    @workspace using the Airfield class, create the ApiController class with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers as well as the router with all the routing handlers attached.
+    @workspace using the Airfield class, create a new ApiController class with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers as well as the router with all the routing handlers attached.
     ```
 
 - Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
