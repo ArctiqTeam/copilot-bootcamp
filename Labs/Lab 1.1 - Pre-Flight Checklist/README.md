@@ -63,8 +63,7 @@ You can now use the development environment to work on the exercises in the Hand
 - Run the application by typing the following commands in the terminal:
 
     ```sh
-    npm run build
-    npm start
+    npm run build && npm start
     ```
 
 > [!NOTE]

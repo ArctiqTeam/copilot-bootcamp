@@ -71,7 +71,22 @@ class FlightsController {
     }
 
     createFlight(req: Request, res: Response) {
-        // Implement your logic for POST request
+        const flight: IFlight = req.body;
+        this.flights.push(new Flight(
+            flight.id,
+            flight.flightNumber,
+            flight.origin,
+            flight.destination,
+            flight.departureTime,
+            flight.arrivalTime,
+            flight.status,
+            flight.fuelRange,
+            flight.fuelTankLeak,
+            flight.flightLogSignature,
+            flight.aerobaticSequenceSignature
+        ));
+        const newFlight = this.flights.find(f => f.id === flight.id);
+        res.status(201).json(newFlight);
     }
 
     getFlight(req: Request, res: Response) {

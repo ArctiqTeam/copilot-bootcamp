@@ -471,8 +471,7 @@ class PlanesController {
 - Run the application by typing the following commands in the terminal:
 
     ```sh
-    npm run build
-    npm start
+    npm run build && npm start
     ```
 
 - Open the `Examples/Airfields.http` file, click `Send Request` to execute the `GET all airfields` request.
