@@ -44,40 +44,24 @@ This session offers a comprehensive overview of AI's evolution, key terms, and c
 
 This session introduces Copilot as an AI-powered code assistant, covers supported languages and IDEs, provides a setup and navigation tutorial, includes an interactive session for integrating Copilot with IDEs, explores its real-time code suggestion and language-specific capabilities, compares it to human pair programming, and concludes with its benefits in software development.
 
-Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
-
 - [Pre-Flight Checklist ✈ Introduction to Copilot and Setup](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Module 2
 
 ### Lab 2.1 - Flight demonstration ✈ Basic Coding with Copilot Assistance
 
-This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks and unit tests, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
-
-Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
+This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
 
 - [Flight demonstration ✈ Basic Coding with Copilot Assistance](./Labs/Lab%202.1%20-%20Flight%20demonstration)
 
 ### Lab 2.2 - Navigating the Code Clouds ✈ Advanced Features of Copilot
 
-This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in writing complex regex expressions, and finally, illustrates its utility in solving algorithmic challenges, showcasing its advanced problem-solving capabilities.
-
-Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
+This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in adding complex new feature, and finally.
 
 - [Navigating the Code Clouds ✈ Advanced Features of Copilot](./Labs/Lab%202.2%20-%20Navigating%20the%20Code%20Clouds)
 
 ## Module 3
 
-### Lab 3.1 - Auto-Pilot Mode ✈ Automating Tasks with Copilot
+### Lab 3.1 - TBD
 
-This session covers coding automation, focusing on GitHub Copilot for streamlining tasks like generating code and configuring files. It explores GitHub Action Pipelines for workflow automation, emphasizes the significance of concise commit messages, and discusses crafting detailed pull request summaries for collaboration.
-
-Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
-
-- [Auto-Pilot Mode ✈ Automating Tasks with Copilot](./Labs/Lab%203.1%20-%20Auto-Pilot%20Mode)
-
-### Lab 3.2 - Safe Landing ✈ Review and Future of AI in Coding
-
-The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session. There's also a sneak peek at Copilot's upcoming features, including how Copilot Chat works on GitHub.com.
-
-- [Safe Landing ✈ Review and Future of AI in Coding](./Labs/Lab%203.2%20-%20Safe%20Landing)
+### Lab 3.2 - TBD
