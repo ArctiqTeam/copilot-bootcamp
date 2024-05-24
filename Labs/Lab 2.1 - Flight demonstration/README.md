@@ -17,7 +17,7 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
     - Step 2 - Airplane Docking - Add new Flight Model
     - Step 3 - Test Flight - Autocompletion and Suggestions
     - Step 4 - Flight Plan - Code Completion and Style Adaptation
-    - Step 5 - Laying Down the Runway: Creating the AirfieldController from thin air (Optional)
+    - Step 5 - Laying Down the Runway - Creating the AirfieldController from thin air (Optional)
 
 > [!IMPORTANT]  
 > Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
@@ -364,7 +364,7 @@ class PlanesController {
     }
    ```
 
-### Step 5: Laying Down the Runway: Creating the AirfieldController from thin air (Optional)
+### Step 5: Laying Down the Runway - Creating the AirfieldController from thin air (Optional)
 
 - Open the `WrightBrothersApi` folder in Visual Studio Code.
 

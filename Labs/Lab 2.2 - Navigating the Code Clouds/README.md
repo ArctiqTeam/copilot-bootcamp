@@ -12,12 +12,12 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 ## Objectives
 
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
-    - Step 1 - The Complete Wright Brothers Fleet
+    - Step 1 - The Complete Wright Brothers Fleet - More than one thing at a time
     - Step 2 - Flight Logbook - Logging Your Coding Journey
     - Step 3 - Flying in Formation - Code Refactoring
     - Step 4 - Parsing Flight Show - Prompt Engineering
 
-### Step 1: - The Complete Wright Brothers Fleet
+### Step 1: - The Complete Wright Brothers Fleet - More than one thing at a time
 
 - Open the `Plane.ts` file located in the `Models` folder.
 
