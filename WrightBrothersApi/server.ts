@@ -4,7 +4,7 @@ import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 import planesController from './Controllers/PlanesController';
 import flightsController from './Controllers/FlightsController';
-import airfieldsController from './Controllers/AirfieldsController';
+// import airfieldsController from './Controllers/AirfieldsController';
 
 const swaggerDocument = YAML.load('./swagger.yaml');
 
@@ -55,7 +55,7 @@ app.use('/planes', planesController);
 app.use('/flights', flightsController);
 
 // Add the airfields controller
-app.use('/airfields', airfieldsController);
+// app.use('/airfields', airfieldsController);
 
 // Redirect root to Swagger UI
 app.get('/', (req: Request, res: Response) => {
