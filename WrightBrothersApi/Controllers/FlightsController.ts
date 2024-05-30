@@ -70,7 +70,7 @@ class FlightsController {
         this.router.post('/:id/calculateAerodynamics', this.calculateAerodynamics.bind(this));
     }
 
-    createFlight(req: Request, res: Response) {
+    private createFlight(req: Request, res: Response) {
         const flight: IFlight = req.body;
         this.flights.push(new Flight(
             flight.id,
@@ -89,11 +89,11 @@ class FlightsController {
         res.status(201).json(newFlight);
     }
 
-    getFlight(req: Request, res: Response) {
+    private getFlight(req: Request, res: Response) {
         // Implement your logic for GET request
     }
 
-    updateStatus(req: Request, res: Response) {
+    private updateStatus(req: Request, res: Response) {
         const id = parseInt(req.params.id);
         const newStatus = req.body.status;
         const flight = this.flights.find(f => f.id === id);
@@ -141,7 +141,7 @@ class FlightsController {
         }
     }
 
-    takeFlight(req: Request, res: Response): void {
+    private takeFlight(req: Request, res: Response): void {
         const id = parseInt(req.params.id);
         const flightLength = parseInt(req.params.flightLength);
         const flight = this.flights.find(f => f.id === id);
@@ -167,11 +167,11 @@ class FlightsController {
         res.status(200).send(`Flight took off and flew ${flightLength} kilometers/miles.`);
     }
 
-    lightningStrike(req: Request, res: Response) {
+    private lightningStrike(req: Request, res: Response) {
         // Implement your logic for lightning strike
     }
 
-    calculateAerodynamics(req: Request, res: Response) {
+    private calculateAerodynamics(req: Request, res: Response) {
         // Implement your logic for calculating aerodynamics
     }
 
