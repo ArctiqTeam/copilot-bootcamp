@@ -476,7 +476,7 @@ class PlanesController {
 
 - Open the `Examples/Airfields.http` file, click `Send Request` to execute the `GET all airfields` request.
 
-- You will see that the flight is taking off and the response is `200 OK`.
+- You will see a list of airfields are returned and the response is `200 OK`.
 
 - Response will be:
 
