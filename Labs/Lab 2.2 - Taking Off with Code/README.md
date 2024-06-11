@@ -14,12 +14,12 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.
 - Pair programming: One 'pilot' codes, the other guides using Copilot's suggestions.
 
-    - Step 1 - Taxying to the Runway - Run existing unit tests
-    - Step 2 - Pre-takeoff Pilot Checks - Completing Unit Tests
-    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity (Optional)
-    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air (Optional)
+    - Step 1 - Taxying to the Runway - Run Existing Unit Tests
+    - Step 2 - Pre-takeoff Pilot Checks - Improving Test Coverage
+    - Step 3 - Takeoff - Developing Robust Tests (Optional)
+    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from Thin Air (Optional)
 
-### Step 1: Taxying to the Runway - Run existing unit tests
+### Step 1: Taxying to the Runway - Run existing Unit Tests
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
@@ -61,7 +61,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     Time:        0.295 s, estimated 1 s
     ```
 
-### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
+### Step 2: Pre-takeoff Pilot Checks - Improving Test Coverage
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
@@ -84,7 +84,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     Use the existing list of planes for test data
     ```
 
-<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
+<img src="../../Images/Screenshot-Lab2.2-GetById-Selection.png" width="400">
 
 - For `#selection`, open the `PlaneController.ts` file.
 
@@ -453,7 +453,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ## Optional
 
-### Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air
+### Step 4 - Ascending to the Clouds: Creating the AirfieldController from Thin Air
 
 - Open the `WrightBrothersApi` folder in Visual Studio Code.
 
