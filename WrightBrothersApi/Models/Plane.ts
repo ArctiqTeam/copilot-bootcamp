@@ -14,4 +14,4 @@ class Plane {
     }
 }
 
-export { Plane };
+export default Plane;

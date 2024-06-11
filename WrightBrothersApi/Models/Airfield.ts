@@ -14,4 +14,4 @@ class Airfield {
     }
 }
 
-export { Airfield };
+export default Airfield;

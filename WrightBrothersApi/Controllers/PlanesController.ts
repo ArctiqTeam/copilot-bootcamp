@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
-import { Plane } from '../Models/Plane';
+import Plane from '../Models/Plane';
+import FlightsController from './FlightsController';
 
 interface IPlane {
     id: number;
@@ -36,11 +37,11 @@ class PlanesController {
                 1908,
                 "The first commercially successful airplane.",
                 40
-            )
+            ),
         ];
 
-        this.router.get('/', this.getAllPlanes.bind(this));
         this.router.get('/:id', this.getPlaneById.bind(this));
+        this.router.get('/', this.getAllPlanes.bind(this));
         this.router.post('/', this.createPlane.bind(this));
     }
 
@@ -49,7 +50,7 @@ class PlanesController {
     }
 
     private getAllPlanes(req: Request, res: Response) {
-        console.log("GET all planes");
+        console.log("GET all ✈️✈️✈️ NO PARAMS ✈️✈️✈️");
         res.json(this.planes);
     }
 
@@ -75,7 +76,6 @@ class PlanesController {
         this.planes.push(plane);
         res.status(201).json(plane);
     }
-
 }
 
-export default new PlanesController().getRouter();
+export default PlanesController;

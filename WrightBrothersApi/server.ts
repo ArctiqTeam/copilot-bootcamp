@@ -2,9 +2,9 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
-import planesController from './Controllers/PlanesController';
-import flightsController from './Controllers/FlightsController';
-// import airfieldsController from './Controllers/AirfieldsController';
+import PlanesController from './Controllers/PlanesController';
+import FlightsController from './Controllers/FlightsController';
+// import AirfieldsController from './Controllers/AirfieldsController';
 
 const swaggerDocument = YAML.load('./swagger.yaml');
 
@@ -48,14 +48,18 @@ const checkIfMinorIssue = (): boolean => {
 // Add Swagger/OpenAPI
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Add the planes controller
-app.use('/planes', planesController);
 
-// Add the flights controller
-app.use('/flights', flightsController);
+// Initialize the controllers
+const planesController = new PlanesController();
+const flightsController = new FlightsController();
+
+// define the routes for the controllers
+app.use('/planes', planesController.getRouter());
+app.use('/flights', flightsController.getRouter());
 
 // Add the airfields controller
-// app.use('/airfields', airfieldsController);
+// const airfieldsController = new AirfieldsController();
+// app.use('/airfields', airfieldsController.getRouter();
 
 // Redirect root to Swagger UI
 app.get('/', (req: Request, res: Response) => {

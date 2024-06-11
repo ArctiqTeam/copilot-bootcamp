@@ -188,4 +188,4 @@ class FlightsController {
     }
 }
 
-export default new FlightsController().getRouter();
+export default FlightsController;
