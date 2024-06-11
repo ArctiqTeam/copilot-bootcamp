@@ -54,7 +54,15 @@ This session begins with Copilot's fundamental code autocompletion and suggestio
 
 - [Flight demonstration ✈ Basic Coding with Copilot Assistance](./Labs/Lab%202.1%20-%20Flight%20demonstration)
 
-### Lab 2.2 - Navigating the Code Clouds ✈ Advanced Features of Copilot
+### Lab 2.2 - Taking Off with Code ✈ Clearing the Runway
+
+In this session, participants will be guided through a series of coding exercises that leverage GitHub Copilot, aiming to deepen their understanding of its suggestions and capabilities. The focus will be on running and augmenting unit tests, highlighting the importance of pair programming throughout the process. The session is organized into sequential steps, beginning with the execution of existing unit tests. Participants will then work on enhancing test coverage and delve into addressing specific functionalities, such as case sensitivity and trimming in search methods.
+
+Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
+
+- [Taking Off with Code ✈ Clearing the Runway](./Labs/Lab%202.2%20-%20Taking%20Off%20with%20Code)
+
+### Lab 2.3 - Navigating the Code Clouds ✈ Advanced Features of Copilot
 
 This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in adding complex new feature, and finally.
 
