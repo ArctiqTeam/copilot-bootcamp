@@ -7,10 +7,10 @@
         "esModuleInterop": true
     },
     "include": [
-        "./**/*.ts"
-, "Tests/PlanesController.test.ts"    ],
+        "./**/*.ts",
+    ],
     "exclude": [
         "node_modules",
-        "./Tests/**/*.ts"
+        "./Tests/*.test.ts"
     ]
 }
