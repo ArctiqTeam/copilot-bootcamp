@@ -258,7 +258,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     - Exclude import statements from the result
     ```
 
-<img src="../../Images/Screenshot-Lab2.2-searchPlanesByName-Tests.png" width="600">
+<img src="../../Images/Screenshot-Lab2.2-SearchPlanesByName-Tests.png" width="600">
 
 - For `#selection`, select the following two methods in the `PlanesController.ts` class.
 
