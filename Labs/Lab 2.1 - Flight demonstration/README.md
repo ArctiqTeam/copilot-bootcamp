@@ -17,7 +17,6 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
     - Step 2 - Airplane Docking - Add new Flight Model
     - Step 3 - Test Flight - Autocompletion and Suggestions
     - Step 4 - Flight Plan - Code Completion and Style Adaptation
-    - Step 5 - Laying Down the Runway - Creating the AirfieldController from thin air (Optional)
 
 > [!IMPORTANT]  
 > Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
@@ -278,28 +277,28 @@ class PlanesController {
     }
     ```
 
-- GitHub Copilot will automatically suggest the `getPlaneByName` method, press `Tab` to accept.
+- GitHub Copilot will automatically suggest the `searchPlanesByName` method, press `Tab` to accept.
 
     ```typescript
     // Search planes by name
     // * Suggested by Copilot
-    private getPlaneByName(req: Request, res: Response) {
+    private searchPlanesByName(req: Request, res: Response) {
         const name = req.query.name as string;
-        const plane = this.planes.find(plane => plane.name === name);
-
-        if (!plane) {
+        const planes = this.planes.filter(plane => plane.name.includes(name));
+    
+        if (!planes) {
             res.status(404).send('Plane not found');
-        } else {
-            res.json(plane);
         }
+    
+        res.json(planes);
     }
     // * Suggested by Copilot
     ```
 
 > [!NOTE]
-> The reason GitHub Copilot suggests the `getPlaneByName` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
+> The reason GitHub Copilot suggests the `searchPlanesByName` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
-- Let's add the missing routing handler for the `getPlaneByName` method to the router.
+- Let's add the missing routing handler for the `searchPlanesByName` method to the router.
 
 - Place your cursor at the end of the routing handlers, after the `;` of the `Delete` method, press `Enter`.
 
@@ -314,10 +313,10 @@ class PlanesController {
 }
 ```
 
-- GitHub Copilot will automatically suggest the handler for the `getPlaneByName` method.
+- GitHub Copilot will automatically suggest the handler for the `searchPlanesByName` method.
 
     ```typescript
-    this.router.get('/search', this.getPlaneByName.bind(this));
+    this.router.get('/search', this.searchPlanesByName.bind(this));
     ```
 
 - Let's do it again, place your cursor before the `if (!plane)` line, at the end of the `const plane = ... rangeInKm);` line, in the `createPlane(req: Request, res: Response)` method, press `Enter` twice.
@@ -363,143 +362,6 @@ class PlanesController {
         res.status(201).json(plane);
     }
    ```
-
-### Step 5: Laying Down the Runway - Creating the AirfieldController from thin air (Optional)
-
-- Open the `WrightBrothersApi` folder in Visual Studio Code.
-
-- Open the `Models/Airfield.ts` file.
-
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
-
-- Ask the following question:
-
-    ```
-    @workspace using the Airfield class, create a new ApiController class with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers as well as the router with all the routing handlers attached.
-    ```
-
-- Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
-
-    ```typescript
-    import express, { Request, Response } from 'express';
-    import { Airfield } from '../Models/Airfield';
-
-    class AirfieldsController {
-        private airfields: Airfield[];
-
-        public router = express.Router();
-
-        constructor() {
-            this.airfields = [
-                new Airfield(1, "Kitty Hawk", "North Carolina", "1900-3000", "First successful flight"),
-                new Airfield(2, "Huffman Prairie", "Ohio", "1904-1905", "First practical airplane"),
-                new Airfield(3, "Fort Myer", "Virginia", "1908-1909", "Military flight trials")
-            ];
-
-            this.router.get('/', this.getAirfields.bind(this));
-            this.router.get('/:id', this.getAirfield.bind(this));
-            this.router.post('/', this.postAirfield.bind(this));
-            this.router.delete('/:id', this.deleteAirfield.bind(this));
-            this.router.put('/:id', this.updateAirfield.bind(this));
-        }
-
-        // GET: 
-        getAirfields(req: Request, res: Response) {
-            res.send(this.airfields);
-        }
-
-        // GET: 3
-        getAirfield(req: Request, res: Response): void {
-            const id = parseInt(req.params.id);
-            if (id < 0 || id >= this.airfields.length) {
-                res.status(404).send("Airfield not found");
-            }
-            res.status(200).send(this.airfields[id]);
-        }
-
-        // POST: 
-        postAirfield(req: Request, res: Response): void {
-            const airfield: Airfield = req.body;
-            this.airfields.push(airfield);
-            res.status(201).send(airfield);
-        }
-
-        // DELETE:
-        deleteAirfield(req: Request, res: Response): void {
-            const id = parseInt(req.params.id);
-            const index = this.airfields.findIndex(a => a.id === id);
-            if (index === -1) {
-                res.status(404).send("Airfield not found");
-                return;
-            }
-
-            this.airfields.splice(index, 1);
-            res.status(200).send("Airfield with id: " + id + " deleted");
-        }
-
-        // PUT: 2
-        updateAirfield(req: Request, res: Response): void {
-            const id = parseInt(req.params.id);
-            const index = this.airfields.findIndex(a => a.id === id);
-            if (index === -1) {
-                res.status(404).send("Airfield not found");
-                return;
-            }
-            const airfield: Airfield = req.body
-            this.airfields[index] = airfield;
-            res.status(200).send(airfield);
-        }
-    }
-
-    export default new AirfieldsController().router;
-    ```
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
-
-- Copilot will add the code to a new empty file, but must be saved.
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `Controllers` folder`.
-- Enter the file name `AirfieldController.ts` and click `Save`.
-
-<img src="../../Images/Screenshot-AirfieldController.Controller.png" width="800">
-
-> [!NOTE]
-> Copilot is not only context aware, knows you need a list of items and knows the `Air Fields` used by the Wright Brothers, the `Huffman Prairie`, which is the first one used by the Wright Brothers.
-
-- Now that you have created the `AirfieldController` with CRUD operations, it's time to check that it's working as expected.
-
-- Run the application by typing the following commands in the terminal:
-
-    ```sh
-    npm run build && npm start
-    ```
-
-- Open the `Examples/Airfields.http` file, click `Send Request` to execute the `GET all airfields` request.
-
-- You will see a list of airfields are returned and the response is `200 OK`.
-
-- Response will be:
-
-    ```json
-    HTTP/1.1 200 OK
-    
-    ...
-
-    Connection: close
-
-    [
-        {
-            "id": 1,
-            "name": "Kitty Hawk",
-            "location": "North Carolina",
-            "datesOfUse": "1900-3000",
-            "significance": "First successful flight"
-        },
-        /* rest of the airfields */
-    ]
-    ```
-
-- Stop the application by pressing `Ctrl+C` in the terminal window.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
