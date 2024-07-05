@@ -1,4 +1,4 @@
-# Lab 2.2 - Navigating the Code Clouds: Advanced Features of GitHub Copilot
+# Lab 2.3 - Navigating the Code Clouds: Advanced Features of GitHub Copilot
 
 This lab exercise delves into GitHub Copilot's advanced features, teaching participants to enhance coding efficiency through complex tasks like adding new properties, generating documentation, refactoring code, and parsing strings, supplemented by optional labs on context understanding and regex parsing.
 

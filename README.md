@@ -66,7 +66,7 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 
 This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in adding complex new feature, and finally.
 
-- [Navigating the Code Clouds ✈ Advanced Features of Copilot](./Labs/Lab%202.2%20-%20Navigating%20the%20Code%20Clouds)
+- [Navigating the Code Clouds ✈ Advanced Features of Copilot](./Labs/Lab%202.3%20-%20Navigating%20the%20Code%20Clouds)
 
 ## Module 3
 
