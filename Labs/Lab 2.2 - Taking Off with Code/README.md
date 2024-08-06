@@ -16,7 +16,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     - Step 1 - Taxying to the Runway - Run Existing Unit Tests
     - Step 2 - Pre-takeoff Pilot Checks - Improving Test Coverage
-    - Step 3 - Takeoff - Developing Robust Tests (Optional)
+    - Step 3 - Taking off - Applying TDD using Copilot
     - Step 4 - Ascending to the Clouds: Creating the AirfieldController from Thin Air (Optional)
 
 ### Step 1: Taxying to the Runway - Run existing Unit Tests
@@ -178,7 +178,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ## Optional
 
-### Step 3: Taking Off - Developing Robust Tests
+### Step 3: Taking Off - Applying TDD using Copilot
 
 - Open the `PlanesController.ts` file.
 

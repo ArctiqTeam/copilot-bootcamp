@@ -56,7 +56,7 @@ This session begins with Copilot's fundamental code autocompletion and suggestio
 
 ### Lab 2.2 - Taking Off with Code ✈ Clearing the Runway
 
-In this session, participants will be guided through a series of coding exercises that leverage GitHub Copilot, aiming to deepen their understanding of its suggestions and capabilities. The focus will be on running and augmenting unit tests, highlighting the importance of pair programming throughout the process. The session is organized into sequential steps, beginning with the execution of existing unit tests. Participants will then work on enhancing test coverage and delve into addressing specific functionalities, such as case sensitivity and trimming in search methods.
+In this session, participants will be guided through a series of coding exercises that leverage GitHub Copilot, aiming to deepen their understanding of its suggestions and capabilities. The focus will be on running and augmenting unit tests, highlighting the importance of pair programming throughout the process. The session is organized into sequential steps, beginning with the execution of existing unit tests. Participants will then work on enhancing test coverage and apply Test Driven Development to develop robust test all with the help of Copilot.
 
 Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
 
