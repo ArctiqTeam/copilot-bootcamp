@@ -407,7 +407,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Next, type `#file` again in the chat window and press Enter and select the `PlanesController.test.ts ` file.
 
-<img src="../../Images/Screenshot-Lab2.2-searchPlanesByName-Fix.png" width="600">
+<img src="../../Images/Screenshot-Lab2.2-SearchByName-Fix.png" width="600">
 
 - Submit the prompt by pressing Enter.
 
