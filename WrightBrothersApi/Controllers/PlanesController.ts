@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import Plane from '../Models/Plane';
-import FlightsController from './FlightsController';
 
 interface IPlane {
     id: number;
@@ -37,7 +36,7 @@ class PlanesController {
                 1908,
                 "The first commercially successful airplane.",
                 40
-            ),
+            )
         ];
 
         this.router.get('/:id', this.getPlaneById.bind(this));
