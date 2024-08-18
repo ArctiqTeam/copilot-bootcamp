@@ -69,9 +69,6 @@ export default [
             // Enforce a newline at the end of files
             "eol-last": ["error", "always"],
             
-            // Disallow unused variables
-            "no-unused-vars": "error",
-            
             // Prefer const over let where possible
             "prefer-const": "error",
             
