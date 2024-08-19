@@ -34,8 +34,8 @@ export default [
                     format: ['PascalCase']
                 },
                 {
-                    // Functions should be in camelCase
-                    selector: 'function',
+                    // Methods should be in camelCase
+                    selector: 'method',
                     format: ['camelCase']
                 },
                 {

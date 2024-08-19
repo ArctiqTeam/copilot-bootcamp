@@ -14,8 +14,9 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
     - Step 1 - The Complete Wright Brothers Fleet - More than one thing at a time
     - Step 2 - Flight Logbook - Logging Your Coding Journey
-    - Step 3 - Flying in Formation - Code Refactoring
-    - Step 4 - Parsing Flight Show - Prompt Engineering
+    - Step 3 - Aviation Code - Enforcing Coding Standards
+    - Step 4 - Flying in Formation - Code Refactoring
+    - Step 5 - Parsing Flight Show - Prompt Engineering
 
 ### Step 1: - The Complete Wright Brothers Fleet - More than one thing at a time
 
@@ -114,7 +115,159 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 > [!NOTE]
 > The difference is that in editor Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
 
-### Step 3: - Flying in Formation - Code Refactoring
+### Step 3: - Aviation Code - Enforcing Coding Standards
+
+- Open the `eslint.config.mjs` file.
+
+- Notice some of the coding standards defined in the file, such as `PascalCase` for class names and `camelCase` for variable names.
+
+    ```javascript
+    rules: {
+        '@typescript-eslint/naming-convention': [
+            "error",
+            {
+                selector: 'class',
+                format: ['PascalCase'],
+            },
+            {
+                selector: 'variableLike',
+                format: ['camelCase'],
+                leadingUnderscore: 'allow'
+            },
+        ],
+    },
+    ```
+
+> [!NOTE]
+> The `eslint.config.mjs file` is a modern configuration file for ESLint, using the ES Module syntax (.mjs for JavaScript modules). It allows you to define your ESLint settings, including rules, parser options, and plugins, using the latest JavaScript features. This file is especially useful for projects using ES modules, enabling very dynamic and modular configuration.
+
+- Open the `Controllers/FlightsController.ts`.
+
+- Note the following issues that violate the coding standards:
+    1. The class name `flightsController` does not follow the `PascalCase` naming convention for class names.
+    1. The variable name `FuelConsumption` does not follow the `camelCase` naming convention for variable names.
+
+- Open the terminal and navigate to the project directory using the command `cd ./WrightBrothersApi`, then run:
+
+    ```sh
+    npx eslint Controllers/FlightsController.ts
+    ```
+
+- You should see output indicating the coding standard violations, such as:
+
+    ```sh
+    Controllers/FlightsController.ts
+        18:7   error  Class name `flightsController` must match one of the following formats: PascalCase  @typescript-eslint/naming-convention
+        148:13  error  Variable name `FuelConsumption` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+    ```
+
+- Select the code class name `flightsController`, then press `Ctrl/Cmd + I` to bring up the inline chat prompt.
+
+- Type `/fix` in the chat prompt and Copilot will suggest a fix for the class name.
+
+    <img src="../../Images/Screenshot-Lab2.3-Naming-Conventio-Class.png" width="800">
+
+- Accept the suggestion by selecting `Accept` or pressing `Ctrl/Cmd + Enter`.
+
+- Repeat the above for the `export` statement at the end of the file.
+
+- Select the following code block containing variable `FuelConsumption` in the `takeFlight` method:
+
+    ```typescript
+    let FuelConsumption = 0;
+    if (flight.fuelTankLeak) {
+        FuelConsumption = 2;
+    }
+
+    for (let i = 0; i < flightLength; i++) {
+        if (flight.fuelRange <= 0) {
+            res.status(500).send("Plane crashed, due to lack of fuel");
+            return;
+        }
+        flight.fuelRange -= FuelConsumption;
+    }
+    ```
+
+- then press `Ctrl/Cmd + I` to bring up the inline chat prompt.
+
+- Type `/fix coding standard issues` in the chat prompt and Copilot will suggest a fix for the variable name.
+
+    <img src="../../Images/Screenshot-Lab2.3-Naming-Conventio-Variable.png" width="800">
+
+- Accept the suggestion by selecting `Accept` or pressing `Ctrl/Cmd + Enter`.
+
+- Rerun the following command, you will see that the coding standard violations have been fixed:
+
+    ```sh
+    npx eslint Controllers/FlightsController.ts
+    ```
+
+> [!NOTE]
+> GitHub Copilot can help you fix coding standard issues in your codebase. It can suggest fixes for class names, variable names, and other coding standard issues.
+
+- Open the `eslint.config.mjs` file.
+
+- Update the naming convention for method from `camelCase` to `snake_case`.
+
+    ```javascript
+    rules: {
+        '@typescript-eslint/naming-convention': [
+            "error",
+
+            // Other rules
+            {
+                selector: 'method',
+                format: ['camelCase'], // change camelCase to snake_case
+            },
+
+            // Other rules
+        ],
+    },
+    ```
+
+- Open GitHub Copilot Chat.
+
+- Type the following prompt:
+
+    ```md
+    Create a method to calculate the area of a circle given the diameter as parameter and the circumference to diameter ratio should be 3.14.
+    ```
+
+- Copilot might suggest something like:
+
+    ```typescript
+    function calculateArea(diameter) {
+        const pi = 3.14;
+        const radius = diameter / 2;
+        const area = pi * radius * radius;
+        return area;
+    }
+    ```
+
+- Retype the same prompt in the chat window, but this time add command to enforce coding standards:
+
+    ```md
+    Create a method to calculate the area of a circle given the diameter as parameter and the circumference to diameter ratio should be 3.14. The code should comply with the coding standards in #file:eslint.config.mjs.
+    ```
+
+    Copilot should suggest code that adheres to the coding standards:
+
+    ```typescript
+    function calculate_area(diameter) {
+        const pi = 3.14;
+        const radius = diameter / 2;
+        const area = pi * radius * radius;
+        return area;
+    }
+    ```
+
+> [!NOTE]
+>  GitHub Copilot can detect and suggest fixes for coding standard violations when prompted. This is particularly useful for maintaining code quality and consistency across the codebase.
+
+> [!NOTE]
+> When generating new methods, referencing the coding standards file can lead to more consistent and compliant code. Without referencing the standards, Copilot may not adhere to the specific naming conventions and formatting rules defined in the configuration file.
+
+### Step 4: - Flying in Formation - Code Refactoring
 
 - Open the `Controllers/FlightsController.ts` file.
 
