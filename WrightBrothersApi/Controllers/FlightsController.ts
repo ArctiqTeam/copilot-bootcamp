@@ -15,7 +15,7 @@ interface IFlight {
     aerobaticSequenceSignature: string;
 }
 
-class FlightsController {
+class flightsController {
     private flights: Flight[];
     private router = express.Router();
 
@@ -62,12 +62,18 @@ class FlightsController {
             )
         ];
 
+        this.router.get('/', this.getAllFlights.bind(this));
         this.router.post('/', this.createFlight.bind(this));
         this.router.get('/:id', this.getFlight.bind(this));
         this.router.post('/:id/status', this.updateStatus.bind(this));
         this.router.post('/:id/takeFlight/:flightLength', this.takeFlight.bind(this));
         this.router.post('/:id/lightningStrike', this.lightningStrike.bind(this));
         this.router.post('/:id/calculateAerodynamics', this.calculateAerodynamics.bind(this));
+    }
+
+    private getAllFlights(req: Request, res: Response) {
+        console.log("GET all ✈️✈️✈️ NO PARAMS ✈️✈️✈️");
+        res.json(this.flights);
     }
 
     private createFlight(req: Request, res: Response) {
@@ -91,9 +97,10 @@ class FlightsController {
 
     private getFlight(req: Request, res: Response) {
         // Implement your logic for GET request
+        res.status(200).send(req.body);
     }
 
-    private updateStatus(req: Request, res: Response) {
+    private updateStatus(req: Request) {
         const id = parseInt(req.params.id);
         const newStatus = req.body.status;
         const flight = this.flights.find(f => f.id === id);
@@ -151,9 +158,9 @@ class FlightsController {
             return;
         }
 
-        let fuelConsumption = 0;
+        let FuelConsumption = 0;
         if (flight.fuelTankLeak) {
-            fuelConsumption = 2;
+            FuelConsumption = 2;
         }
 
         for (let i = 0; i < flightLength; i++) {
@@ -161,7 +168,7 @@ class FlightsController {
                 res.status(500).send("Plane crashed, due to lack of fuel");
                 return;
             }
-            flight.fuelRange -= fuelConsumption;
+            flight.fuelRange -= FuelConsumption;
         }
 
         res.status(200).send(`Flight took off and flew ${flightLength} kilometers/miles.`);
@@ -169,18 +176,12 @@ class FlightsController {
 
     private lightningStrike(req: Request, res: Response) {
         // Implement your logic for lightning strike
+        res.status(200).send(req.body);
     }
 
     private calculateAerodynamics(req: Request, res: Response) {
         // Implement your logic for calculating aerodynamics
-    }
-
-    private calculatePrimes(start: number, end: number) {
-        // Implement your logic for calculating primes
-    }
-
-    private isPrime(number: number) {
-        // Implement your logic for checking if a number is prime
+        res.status(200).send(req.body);
     }
 
     public getRouter() {
@@ -188,4 +189,4 @@ class FlightsController {
     }
 }
 
-export default FlightsController;
+export default flightsController;
