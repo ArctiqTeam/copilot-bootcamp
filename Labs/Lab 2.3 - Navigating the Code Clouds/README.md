@@ -139,7 +139,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
     ```
 
 > [!NOTE]
-> The `eslint.config.mjs file` is a modern configuration file for ESLint, using the ES Module syntax (.mjs for JavaScript modules). It allows you to define your ESLint settings, including rules, parser options, and plugins, using the latest JavaScript features. This file is especially useful for projects using ES modules, enabling very dynamic and modular configuration.
+> The `eslint.config.mjs` file is a modern configuration file for ESLint, using the ES Module syntax (.mjs for Module JavaScript). It allows you to define your ESLint settings, including rules, parser options, and plugins, using the latest JavaScript features. This file is especially useful for projects using ES modules, enabling very dynamic and modular configuration.
 
 - Open the `Controllers/FlightsController.ts`.
 
