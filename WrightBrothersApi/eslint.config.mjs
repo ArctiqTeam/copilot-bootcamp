@@ -1,10 +1,10 @@
-import globals from "globals";
-import tseslint from "typescript-eslint";
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 
 export default [
     // Apply these settings to all JavaScript and TypeScript files
-    { files: ["**/*.{js,mjs,cjs,ts}"] },
+    { files: ['**/*.{js,mjs,cjs,ts}'] },
     
     // Define global variables available in the browser environment
     { languageOptions: { globals: globals.browser } },
@@ -15,68 +15,68 @@ export default [
     {
         rules: {
             // Enforce naming conventions
-            "@typescript-eslint/naming-convention": [
-                "error",
+            '@typescript-eslint/naming-convention': [
+                'error',
+                {
+                    // Classes should be in PascalCase
+                    selector: 'class',
+                    format: ['PascalCase']
+                },
                 {
                     // Variables should be in camelCase, leading underscores are allowed
-                    "selector": "variableLike",
-                    "format": ["camelCase"],
-                    "leadingUnderscore": "allow"
+                    selector: 'variableLike',
+                    format: ['camelCase'],
+                    leadingUnderscore: 'allow'
                 },
                 {
                     // Types (classes, interfaces, etc.) should be in PascalCase
-                    "selector": "typeLike",
-                    "format": ["PascalCase"]
+                    selector: 'typeLike',
+                    format: ['PascalCase']
                 },
                 {
                     // Functions should be in camelCase
-                    "selector": "function",
-                    "format": ["camelCase"]
+                    selector: 'function',
+                    format: ['camelCase']
                 },
                 {
-                    // Classes should be in PascalCase
-                    "selector": "class",
-                    "format": ["PascalCase"]
-                },
-                {
-                    // Interfaces should be in PascalCase and start with "I"
-                    "selector": "interface",
-                    "format": ["PascalCase"],
-                    "custom": {
-                        "regex": "^I[A-Z]",
-                        "match": true
+                    // Interfaces should be in PascalCase and start with 'I'
+                    selector: 'interface',
+                    format: ['PascalCase'],
+                    custom: {
+                        regex: '^I[A-Z]',
+                        match: true
                     }
                 },
                 {
                     // Enums should be in PascalCase
-                    "selector": "enum",
-                    "format": ["PascalCase"]
+                    selector: 'enum',
+                    format: ['PascalCase']
                 }
             ],
             
             // Enforce 4-space indentation
-            "indent": ["error", 4],
+            indent: ['error', 4],
             
             // Enforce the use of semicolons
-            "semi": ["error", "always"],
+            semi: ['error', 'always'],
             
             // Disallow trailing commas
-            "comma-dangle": ["error", "never"],
+            'comma-dangle': ['error', 'never'],
             
             // Disallow trailing whitespace
-            "no-trailing-spaces": "error",
+            'no-trailing-spaces': 'error',
             
             // Enforce a newline at the end of files
-            "eol-last": ["error", "always"],
+            'eol-last': ['error', 'always'],
             
             // Prefer const over let where possible
-            "prefer-const": "error",
+            'prefer-const': 'error',
             
             // Enforce consistent spacing inside braces
-            "object-curly-spacing": ["error", "always"],
+            'object-curly-spacing': ['error', 'always'],
             
             // Disallow spaces inside array brackets
-            "array-bracket-spacing": ["error", "never"]
+            'array-bracket-spacing': ['error', 'never']
         }
     }
 ];
