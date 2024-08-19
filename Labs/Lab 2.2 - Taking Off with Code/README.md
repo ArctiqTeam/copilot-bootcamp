@@ -75,7 +75,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - You can add additional unit tests in the `PlanesController.test.ts` file
 
-<img src="../../Images/Screenshot-Lab2.2--WhereToAddUnitTests.png" width="800">
+<img src="../../Images/Screenshot-Lab2.2-Where-To-Add-Unit-Tests.png" width="800">
 
 - Open Copilot Chat and Copy/Paste the following
 

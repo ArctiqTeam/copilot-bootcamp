@@ -45,7 +45,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 
 - Type `Add a constructor that initializes the imageUrl property.` in the chat prompt.
 
-    <img src="../../Images/Screenshot-Lab2.2-New-Property.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-New-Property.png" width="800">
 
 - Copilot will suggest a new constructor method that initializes the `imageUrl` property.
 
@@ -72,7 +72,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
     Add the new ImageUrl property to each plane and add the next 2 additional planes to complete the Wright Brothers Fleet.
     ```
 
-    <img src="../../Images/Screenshot-Lab2.2-Complete-List.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-Complete-List.png" width="800">
 
 - Accept the suggestion by selecting `Accept` or pressing `Ctrl/Cmd + Enter`.
 
@@ -85,7 +85,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 
 - Select all content of the method `GetById` in the `PlanesController.ts` file, then press `Ctrl/Cmd + I` to bring up the inline chat prompt. Type `/doc` in the chat prompt.
 
-    <img src="../../Images/Screenshot-Lab2.2-GetById-Method.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-GetById-Method.png" width="800">
 
 - Do not accept the suggestion, click `Discard`.
 
@@ -94,7 +94,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 
 - Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.ts` file.
 
-    <img src="../../Images/Screenshot-Lab2.2-GetById-Method-2.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-GetById-Method-2.png" width="800">
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history, then type the following command:
 
@@ -340,7 +340,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
   Refactor the selected code to make it more readable and maintainable.
   ```
 
-  <img src="../../Images/Screenshot-Lab2.2-UpdateFlightStatus-Refactor.png" width="800">
+  <img src="../../Images/Screenshot-Lab2.3-UpdateFlightStatus-Refactor.png" width="800">
 
 > [!NOTE]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
@@ -504,7 +504,7 @@ Flight number WB001
 
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `FlightLog` record as `Models/FlightLog.ts`.
 
-    <img src="../../Images/Screenshot-Lab2.2-FlightLogSignature.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-FlightLogSignature.png" width="800">
 
 > [!NOTE]
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions. 
@@ -607,7 +607,7 @@ Flight number WB001
 
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
-    <img src="../../Images/Screenshot-Lab2.2-Http-Post.png" width="800">
+    <img src="../../Images/Screenshot-Lab2.3-Http-Post.png" width="800">
 
 - Click the `Send Request` button for the `POST` below:
 
