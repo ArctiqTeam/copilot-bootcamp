@@ -64,7 +64,7 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 
 ### Lab 2.3 - Navigating the Code Clouds ✈ Advanced Features of Copilot
 
-This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance. It then shows how it can enhance readability through documentation suggestions, assist in adding complex new features, and finally, enforce coding standards and refactor code to improve maintainability. Additionally, it covers parsing strings and prompt engineering to generate specific solutions.
+In this session, participants will explore the advanced features of GitHub Copilot to enhance their coding efficiency. The session will cover complex tasks such as adding new properties, generating documentation, enforcing coding standards, refactoring code, and parsing strings. Optional labs on context understanding and regex parsing are also included. By the end of this lab, participants will have a deeper understanding of how to leverage GitHub Copilot for solving intricate coding challenges and optimizing their codebase.
 
 - [Navigating the Code Clouds ✈ Advanced Features of Copilot](./Labs/Lab%202.3%20-%20Navigating%20the%20Code%20Clouds)
 
