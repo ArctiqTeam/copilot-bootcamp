@@ -31,7 +31,7 @@ class flightsController {
                 FlightStatus.Scheduled,
                 100,
                 false,
-                "171203-DEP-ARR-WB001",
+                "171203-FFA-MEO-WB001",
                 "L4B-H2C-R3A-S1D-T2E"
             ),
             new Flight(
@@ -44,7 +44,7 @@ class flightsController {
                 FlightStatus.Scheduled,
                 100,
                 false,
-                "171203-DEP-ARR-WB002",
+                "171203-FFA-MEO-WB002",
                 "L4B-H2C-R3A-S1D-T2E"
             ),
             new Flight(
@@ -57,7 +57,7 @@ class flightsController {
                 FlightStatus.Scheduled,
                 100,
                 false,
-                "171203-DEP-ARR-WB003",
+                "171203-FFA-MEO-WB003",
                 "L4B-H2C-R3A-S1D-T2E"
             )
         ];
