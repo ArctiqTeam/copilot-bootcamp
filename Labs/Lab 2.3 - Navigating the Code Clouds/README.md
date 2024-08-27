@@ -7,7 +7,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 
 ## Estimated time to complete
 
-- 30 minutes, times may vary with optional labs.
+- 60 minutes, times may vary with optional labs.
 
 ## Objectives
 
@@ -135,7 +135,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
                 leadingUnderscore: 'allow'
             },
         ],
-    },
+    }
     ```
 
 > [!NOTE]
