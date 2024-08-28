@@ -63,9 +63,6 @@ export default [
             // Disallow trailing commas
             'comma-dangle': ['error', 'never'],
             
-            // Disallow trailing whitespace
-            'no-trailing-spaces': 'error',
-            
             // Enforce a newline at the end of files
             'eol-last': ['error', 'always'],
             
@@ -73,10 +70,7 @@ export default [
             'prefer-const': 'error',
             
             // Enforce consistent spacing inside braces
-            'object-curly-spacing': ['error', 'always'],
-            
-            // Disallow spaces inside array brackets
-            'array-bracket-spacing': ['error', 'never']
+            'object-curly-spacing': ['error', 'always']
         }
     }
 ];

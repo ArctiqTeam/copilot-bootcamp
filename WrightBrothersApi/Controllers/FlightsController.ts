@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { Flight, FlightStatus } from '../Models/Flight';
+import pool from '../Database';
 
 interface IFlight {
     id: number;
@@ -67,8 +68,7 @@ class flightsController {
         this.router.get('/:id', this.getFlight.bind(this));
         this.router.post('/:id/status', this.updateStatus.bind(this));
         this.router.post('/:id/takeFlight/:flightLength', this.takeFlight.bind(this));
-        this.router.post('/:id/lightningStrike', this.lightningStrike.bind(this));
-        this.router.post('/:id/calculateAerodynamics', this.calculateAerodynamics.bind(this));
+        this.router.post('/log', this.saveFlightLog.bind(this));
     }
 
     private getAllFlights(req: Request, res: Response) {
@@ -174,15 +174,49 @@ class flightsController {
         res.status(200).send(`Flight took off and flew ${flightLength} kilometers/miles.`);
     }
 
-    private lightningStrike(req: Request, res: Response) {
-        // Implement your logic for lightning strike
-        res.status(200).send(req.body);
+    // Define a function to parse coordinate string, example: "35.6764N,139.6500E", "34.9285S,138.6007E"
+    private parse(coordinate: string): { latitude: number, longitude: number } {
+        const arr = coordinate.split(',');
+
+        // Parse latitude
+        let match = arr[0].match(/^([0-9.]+)([NS])$/);
+        if (!match) {
+            throw new Error('Invalid latitude format');
+        }
+        let latitude = parseFloat(match[1]);
+        if (match[2] === 'S') {
+            latitude = -latitude;
+        }
+
+        // Parse longitude
+        match = arr[1].match(/^([0-9.]+)([EW])$/);
+        if (!match) {
+            throw new Error('Invalid longitude format');
+        }
+        let longitude = parseFloat(match[1]);
+        if (match[2] === 'W') {
+            longitude = -longitude;
+        }
+
+        return { latitude, longitude };
     }
 
-    private calculateAerodynamics(req: Request, res: Response) {
-        // Implement your logic for calculating aerodynamics
-        res.status(200).send(req.body);
+    // Define a function to write flight log messages to database
+    private async saveFlightLog(req: Request, res: Response): Promise<void> {
+        const flightId = req.body.flightId;
+        const message = req.body.message;
+        const query = `
+            INSERT INTO flight_logs (flight_id, message)
+            VALUES (${flightId}, '${message}')
+        `;
+
+        try {
+            await pool.query(query);
+        } catch (err: any) {
+            console.error('Error saving flight log:', err.message);
+        }
     }
+    
 
     public getRouter() {
         return this.router;
