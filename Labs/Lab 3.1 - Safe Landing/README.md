@@ -153,7 +153,7 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 
 - Open the `Controllers/FlightsController.ts`.
 
-- Inspect the `saveFlightLog` method and notice the code directly embeds `flightId` and `message` from user input into the SQL query, which could lead to SQL injection.
+- Inspect the `saveFlightLog` method and notice the code directly embeds `flightNumber` and `message` from user input into the SQL query, which could lead to SQL injection.
 
 - Select all content of the method `saveFlightLog`.
 
@@ -167,7 +167,7 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 
     ```typescript
     private async saveFlightLog(req: Request, res: Response): Promise<void> {
-        const flightId = req.body.flightId;
+        const flightNumber = req.body.flightNumber;
         const message = req.body.message;
         const query = `
             INSERT INTO flight_logs (flight_id, message)
@@ -175,7 +175,7 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
         `;
 
         try {
-            await pool.query(query, [flightId, message]);
+            await pool.query(query, [flightNumber, message]);
         } catch (err: any) {
             console.error('Error saving flight log:', err.message);
         }
@@ -233,3 +233,207 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 > The above practice works great if you are only working on a few files or reviewing a pull request from a peer. However, if you need to scan security vulnerabilities in an entire repository or across multiple repositories, you can use static application security testing (SAST) tools, such as GitHub Advanced Security (GHAS), to automate security scanning for your codebase.
 
 ### Step 4 - Check for Speed and Performance
+
+- Open the `Controllers/FlightsController.ts`.
+
+- Inspect the `generateFlightItinerary` method and notice the method concatenates strings to create a flight itinerary report using multiple `+` operators.
+
+- Select all content of the method `generateFlightItinerary`.
+
+- Open GitHub Copilot Chat, then type the following:
+
+    ```md
+    Does my code have any performance issues?
+    ```
+
+- Copilot will suggest using an array to collect the parts of the string and then join them at the end, and optimized code similar to the following:
+
+    ```typescript
+    private generateFlightItinerary(legs: { flightNumber: string, departure: string, arrival: string }[]): string {
+        let itineraryParts: string[] = [];
+        
+        for (let i = 0; i < legs.length; i++) {
+            itineraryParts.push(
+                "Flight " + (i + 1) + ": " +
+                "Flight Number: " + legs[i].flightNumber + ", " +
+                "Departure: " + legs[i].departure + ", " +
+                "Arrival: " + legs[i].arrival
+            );
+        }
+        
+        let itinerary = itineraryParts.join("\n") + "\n";
+        
+        fs.appendFileSync('itinerary_log.txt', itinerary);
+
+        return itinerary;
+    }
+    ```
+
+- Click on the `Insert at Cursor` button to replace the selected code.
+
+- Notice the method might still have performance issues in high concurrency situation due to the synchronous file write operation using `fs.appendFileSync`.
+
+- Reselect all content of the method `generateFlightItinerary`.
+
+- Type the following in the GitHub Copilot Chat:
+
+    ```md
+    Does my code have any performance issues if there are thousands of concurrent requests per second?
+    ```
+
+- Copilot will suggest replacing `fs.appendFileSync` with asynchronous file write operation `fs.appendFile` to avoid blocking the event loop and code similar to the following:
+
+    ```typescript
+    private generateFlightItinerary(legs: { flightNumber: string, departure: string, arrival: string }[]): string {
+        let itineraryParts: string[] = [];
+        
+        for (let i = 0; i < legs.length; i++) {
+            itineraryParts.push(
+                "Flight " + (i + 1) + ": " +
+                "Flight Number: " + legs[i].flightNumber + ", " +
+                "Departure: " + legs[i].departure + ", " +
+                "Arrival: " + legs[i].arrival
+            );
+        }
+        
+        let itinerary = itineraryParts.join("\n") + "\n";
+        
+        // Use asynchronous file operation
+        fs.appendFile('itinerary_log.txt', itinerary, (err) => {
+            if (err) {
+                console.error('Error writing to file', err);
+            }
+        });
+
+        return itinerary;
+    }
+    ```
+
+- Click on the `Insert at Cursor` button to replace the selected code.
+
+- Reopen the `Controllers/FlightsController.ts` file.
+
+- Navigate to the `calculatePropulsion` method.
+
+- Notice the method is calculating number of prime numbers in a given range:
+
+    ```typescript
+    private calculatePropulsion(req: Request, res: Response): void {
+        const start = 91;
+        const end = 200000;
+        const startTime = Date.now();
+
+        let primeCount = this.calculatePrimes(start, end);
+
+        const endTime = Date.now();
+        const timeTaken = endTime - startTime;
+        console.log(`Found ${primeCount} prime numbers between ${start} and ${end}`);
+        console.log(`Time taken for calculation: ${timeTaken} ms`);
+
+        res.status(200).send(`Propulsion is successfully calculated: ${primeCount}`);
+    }
+
+    private calculatePrimes(start: number, end: number): number {
+        let primeCount = 0;
+        for (let i = start; i < end; i++) {
+            if (this.isPrime(i)) {
+                primeCount++;
+            }
+        }
+        return primeCount;
+    }
+
+    private isPrime(num: number): boolean {
+        if (num <= 1) return false;
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
+    ```
+
+- Open the terminal and run the application:
+
+    ```sh
+    npm run build && npm start
+    ```
+
+- Now go to `Examples/Flights.http` file, click Send Request to execute the `calculatePropulsion` request.
+
+    ```
+    Send Request
+    POST http://localhost:3000/flights/3/calculatePropulsion HTTP/1.1
+    content-type: application/json
+    ```
+
+- You will get a response like:
+
+    ```json
+    HTTP/1.1 200 OK
+    Connection: close
+
+    Propulsion is successfully calculated: 17960
+    ```
+
+- Terminal will output the following:
+
+    ```sh
+    Found 17960 prime numbers between 91 and 200000
+    Time taken for calculation: 1890 ms
+    ```
+
+- The application calculates the prime numbers in more than 1 second.
+
+- Stop the app by pressing Ctrl + C in the terminal
+
+- Now, let's use GitHub Copilot to optimize the code.
+
+- Open the Copilot Chat.
+
+- Reopen `Controllers/FlightsController.ts` and select all the code for the 3 following methods:
+
+    - `calculatePropulsion` method.
+    - `calculatePrimes` method.
+    - `isPrime` method.
+
+    <img src="../../Images/Screenshot-Lab3.1-Calculate-Propulsion.png" width="800">
+
+- Ask the following question in GitHub Copilot Chat:
+
+    ```
+    Can you optimize the performance?
+    ```
+
+- Copilot will suggest a more efficient algorithm to calculate prime numbers.
+
+- Click on the `Apply in Editor` to replace the existing code with the optimized code.
+
+- Rerun the application:
+
+    ```sh
+    npm run build && npm start
+    ```
+
+- Now go to `Examples/Flights.http` file, click Send Request to execute the `calculatePropulsion` request again.
+
+    ```
+    Send Request
+    POST http://localhost:3000/flights/3/calculatePropulsion HTTP/1.1
+    content-type: application/json
+    ```
+
+- You will get a new output in the terminal:
+
+    ```sh
+    Found 17960 prime numbers between 91 and 200000
+    Time taken for calculation: 7 ms
+    ```
+
+- The application now calculates the prime numbers in less than 10 milliseconds!
+
+> [!NOTE]
+> GitHub Copilot has knowledge of many algorithmic optimizations and can help you optimize your code performance.
+
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

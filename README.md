@@ -70,6 +70,10 @@ In this session, participants will explore the advanced features of GitHub Copil
 
 ## Module 3
 
-### Lab 3.1 - TBD
+### Lab 3.1 - Safe Landing ✈ Code Review and Analysis
+
+In this session, participants will delve into advanced code review techniques using GitHub Copilot. The focus will be on enhancing code quality by explaining code functionality, improving readability, checking for security vulnerabilities, and optimizing performance. Participants will learn to leverage Copilot to provide detailed explanations of complex code, ensure adherence to coding standards, identify and fix security issues, and optimize code for better performance. This hands-on lab will equip participants with the skills needed to conduct thorough and effective code reviews, ensuring their codebase is robust, secure, and efficient.
+
+- [Safe Landing ✈ Code Review and Analysis](./Labs/Lab%203.1%20-%20Safe%20Landing)
 
 ### Lab 3.2 - TBD

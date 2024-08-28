@@ -28,12 +28,7 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3000/flights/1/lightningStrike HTTP/1.1
-content-type: application/json
-
-###
-
-POST http://localhost:3000/flights/3/calculateAerodynamics HTTP/1.1
+POST http://localhost:3000/flights/3/calculatePropulsion HTTP/1.1
 content-type: application/json
 
 ###

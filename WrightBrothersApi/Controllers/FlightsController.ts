@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { Flight, FlightStatus } from '../Models/Flight';
 import pool from '../Database';
+const fs = require('fs');
 
 interface IFlight {
     id: number;
@@ -68,6 +69,7 @@ class flightsController {
         this.router.get('/:id', this.getFlight.bind(this));
         this.router.post('/:id/status', this.updateStatus.bind(this));
         this.router.post('/:id/takeFlight/:flightLength', this.takeFlight.bind(this));
+        this.router.post('/:id/calculatePropulsion', this.calculatePropulsion.bind(this));
         this.router.post('/log', this.saveFlightLog.bind(this));
     }
 
@@ -201,13 +203,12 @@ class flightsController {
         return { latitude, longitude };
     }
 
-    // Define a function to write flight log messages to database
     private async saveFlightLog(req: Request, res: Response): Promise<void> {
-        const flightId = req.body.flightId;
+        const flightNumber = req.body.flightNumber;
         const message = req.body.message;
         const query = `
             INSERT INTO flight_logs (flight_id, message)
-            VALUES (${flightId}, '${message}')
+            VALUES (${flightNumber}, '${message}')
         `;
 
         try {
@@ -216,7 +217,60 @@ class flightsController {
             console.error('Error saving flight log:', err.message);
         }
     }
+
+    private generateFlightItinerary(legs: { flightNumber: string, departure: string, arrival: string }[]): string {
+        let itineraryParts: string[] = [];
+        
+        for (let i = 0; i < legs.length; i++) {
+            itineraryParts.push(
+                "Flight " + (i + 1) + ": " +
+                "Flight Number: " + legs[i].flightNumber + ", " +
+                "Departure: " + legs[i].departure + ", " +
+                "Arrival: " + legs[i].arrival
+            );
+        }
+        
+        let itinerary = itineraryParts.join("\n") + "\n";
+        
+        fs.appendFileSync('itinerary_log.txt', itinerary);
     
+        return itinerary;
+    }
+
+    private calculatePropulsion(req: Request, res: Response): void {
+        const start = 91;
+        const end = 200000;
+        const startTime = Date.now();
+
+        let primeCount = this.calculatePrimes(start, end);
+
+        const endTime = Date.now();
+        const timeTaken = endTime - startTime;
+        console.log(`Found ${primeCount} prime numbers between ${start} and ${end}`);
+        console.log(`Time taken for calculation: ${timeTaken} ms`);
+
+        res.status(200).send(`Propulsion is successfully calculated: ${primeCount}`);
+    }
+
+    private calculatePrimes(start: number, end: number): number {
+        let primeCount = 0;
+        for (let i = start; i < end; i++) {
+            if (this.isPrime(i)) {
+                primeCount++;
+            }
+        }
+        return primeCount;
+    }
+
+    private isPrime(num: number): boolean {
+        if (num <= 1) return false;
+        if (num === 2) return true;
+        if (num % 2 === 0) return false;
+        for (let i = 3, sqrt = Math.sqrt(num); i <= sqrt; i += 2) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
 
     public getRouter() {
         return this.router;
