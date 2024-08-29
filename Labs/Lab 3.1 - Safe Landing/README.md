@@ -194,7 +194,11 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 
 - Open the `OwaspTop10.json` file.
 
-- Notice the most common and severe web application security vulnerabilities compiled by the Open Worldwide Application Security Project (OWASP), which represents a broad consensus about the most critical security risks to web applications.
+- Notice the most common and severe web application security vulnerabilities listed in the file
+
+ 
+> [!NOTE]
+> OWASP Top 10 represents a broad consensus about the most critical security risks to web applications from the only community called Open Worldwide Application Security Project (OWASP), formerly known as Open Web Application Security Project prior to 2023. It is the published result of recent research based on comprehensive data compiled from over 40 partner organizations.
 
 - Open GitHub Copilot Chat, then type the following:
 
