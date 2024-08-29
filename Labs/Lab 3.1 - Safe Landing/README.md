@@ -411,7 +411,10 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
     Can you optimize the performance?
     ```
 
-- Copilot will suggest a more efficient algorithm to calculate prime numbers.
+- Copilot will suggest a more efficient algorithm to calculate prime numbers up to a given limit based on the Sieve of Eratosthenes algorithm.
+
+> [!NOTE]
+> The Sieve of Eratosthenes is an ancient algorithm used to find all prime numbers up to a given limit. The algorithm roughly works this way: you start with a list of numbers and repeatedly mark as "not prime" the multiples of each prime number you find, starting with 2. For example, you mark all multiples of 2 (like 4, 6, 8) as not prime, then move to the next number (3) and mark all its multiples (like 6, 9, 12), and keep doing this for the next unmarked number. Once you've marked all multiples of each prime, the numbers that remain unmarked are the primes. This method is faster than checking each number individually because it systematically eliminates non-primes.
 
 - Click on the `Apply in Editor` to replace the existing code with the optimized code.
 
