@@ -42,6 +42,9 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 
 - Otherwise, simply click the `Close` button or a blank spot outside the chat prompt to close the inline chat prompt.
 
+> [!NOTE]
+> As a code reviewer, the first thing you should ask is "Does this code accomplish what the end user needs?" Devs working on a project aren’t coding in a vacuum. Their program needs to reliably perform functions the user expects. Github Copilot can help you understand the code and its detailed functionality, so you can verify if the code does meet the user requirements.
+
 ### Step 2 - Readability and Coding Standard
 
 - Open the `Controllers/FlightsController.ts`.
