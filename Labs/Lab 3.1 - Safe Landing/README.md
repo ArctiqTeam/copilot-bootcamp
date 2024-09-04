@@ -105,6 +105,9 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 > [!NOTE]
 > The `eslint.config.mjs` file is a modern configuration file for ESLint, using the ES Module syntax (.mjs for Module JavaScript). It allows you to define your ESLint settings, including rules, parser options, and plugins, using the latest JavaScript features. This file is especially useful for projects using ES modules, enabling very dynamic and modular configuration.
 
+> [!NOTE]
+> The 'const' keyword in TypeScript (and JavaScript) is used to declare a constant variable. When you declare a variable with 'const', it means that the variable's value cannot be reassigned after its initial assignment. This creates an immutable binding, ensuring that the reference to the value remains the same throughout the scope of the variable. However, it's important to note that for objects and arrays declared with 'const', while the reference cannot be changed, the contents of the object or array can still be modified. Using 'const' helps in writing more predictable code and prevents accidental reassignments, which can lead to bugs. It's generally recommended to use 'const' by default and only use 'let' when you know the variable will need to be reassigned.
+
 - Reopen the `Controllers/FlightsController.ts` file.
 
 - Notice the `let` is used in the `parseCoordinate` method.
@@ -198,7 +201,7 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
 
  
 > [!NOTE]
-> OWASP Top 10 represents a broad consensus about the most critical security risks to web applications from the only community called Open Worldwide Application Security Project (OWASP), formerly known as Open Web Application Security Project prior to 2023. It is the published result of recent research based on comprehensive data compiled from over 40 partner organizations.
+> OWASP Top 10 represents a broad consensus about the most critical security risks to web applications from the online community called Open Worldwide Application Security Project (OWASP), formerly known as Open Web Application Security Project prior to 2023. It is the published result of recent research based on comprehensive data compiled from over 40 partner organizations.
 
 - Open GitHub Copilot Chat, then type the following:
 
@@ -234,7 +237,7 @@ This lab exercise focuses on advanced code review techniques using GitHub Copilo
     2. Add Authorization Middleware: Create middleware to check if the user has the required permissions.
     3. Apply Middleware to Routes: Use the middleware in the routes that require authentication and authorization.
     ```
-- For each step, Copilot will also suggest code snippets and explanations to help you implement the fix. You can use these suggestions to directly fix the vulnerability yourself or provide them as feedback to your colleague as a peer reviewer.
+- For each step, Copilot will also suggest code snippets and explanations to help you implement the fix. You can use these suggestions to directly fix the vulnerability yourself or provide them as feedback to your colleague as a peer code reviewer.
 
 > [!NOTE]
 > The above practice works great if you are only working on a few files or reviewing a pull request from a peer. However, if you need to scan security vulnerabilities in an entire repository or across multiple repositories, you can use static application security testing (SAST) tools, such as GitHub Advanced Security (GHAS), to automate security scanning for your codebase.
